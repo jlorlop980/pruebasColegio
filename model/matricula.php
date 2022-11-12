@@ -48,7 +48,7 @@ class Matricula
         {
             $stm = $this->pdo
                 ->prepare("select cursos.Nombre as NombreCurso,alumnos.Apellido,alumno_curso.Alumno_id,alumno_curso.Curso_id, alumnos.Nombre 
-                                from cursos,alumnos, alumno_curso  WHERE Curso_id = ? and Alumno_id = ?");
+                                from cursos,alumnos, alumno_curso  WHERE  Curso_id=cursos.id and Alumno_id=alumnos.id and Curso_id = ? and Alumno_id = ?");
 
 
             $stm->execute(array($Curso_id,$Alumno_id));
